@@ -32,7 +32,7 @@ spec:
             - name: MYSQL_ROOT_PASSWORD
               value: root
             - name: MYSQL_DATABASE
-              value: keys
+              value: key_generator
           ports:
             - containerPort: 3306
               name: mysql
