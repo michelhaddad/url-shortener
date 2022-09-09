@@ -4,7 +4,9 @@ metadata:
   name: tcp-services
   namespace: ingress-nginx
 data:
+  {{- if .Values.service.boot}}
   9000: "default/key-generator:8080"
+  {{- end}}
   3306: "default/mysql:3306"
   6379: "default/redis:6379"
 ---
