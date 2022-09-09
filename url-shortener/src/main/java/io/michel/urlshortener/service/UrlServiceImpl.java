@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 import static io.michel.urlshortener.exception.EntityType.URL;
-import static io.michel.urlshortener.exception.ExceptionType.DUPLICATE_ENTITY;
 import static io.michel.urlshortener.exception.ExceptionType.ENTITY_NOT_FOUND;
 import static io.michel.urlshortener.util.DateUtils.addYears;
 import static io.michel.urlshortener.util.DateUtils.today;
@@ -30,9 +29,6 @@ public class UrlServiceImpl implements UrlService {
 
     @Override
     public UrlDto addUrlMapping(UrlDto urlDto) {
-//        TODO: handle duplicate original url
-//        TODO: Handle case where duplicate hash exists but is expired
-
         String generatedHash = keyGeneratorClient.getRandomKey().getPayload();
         Url urlModel = new Url()
                 .setOriginalUrl(urlDto.getOriginalUrl())

@@ -31,7 +31,7 @@ spec:
             # Use secret in real usage
             - name: MYSQL_ROOT_PASSWORD
               value: root
-{{/*              TODO: Add url_shortener DB*/}}
+{{/*              TODO: Add url_shortener DB in some way*/}}
             - name: MYSQL_DATABASE
               value: key_generator
           ports:
