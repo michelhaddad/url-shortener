@@ -1,10 +1,88 @@
 html {
-  box-sizing: border-box;
-  font-size: 62.5%;
+    box-sizing: border-box;
+    font-size: 62.5%;
 }
 
 *, *:before, *:after {
-  box-sizing: inherit;
-  margin: 0;
-  padding: 0;
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+#navbar-logo {
+    height: 15rem;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    background: royalblue;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Abril Fatface', serif;
+}
+
+nav {
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-top: 2rem;
+}
+
+#navbar-logo {
+    font-size: 4rem;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.space-x-2 > * {
+    margin-right: 2rem;
+    margin-left: 2rem;
+}
+
+.space-x-2 > *:first-child {
+    margin-right: 2rem;
+}
+
+.space-x-2 > *:last-child {
+    margin-left: 2rem;
+}
+
+#url-input {
+    height: 4rem;
+    width: 50%;
+    text-overflow: clip;
+    font-size: 2.6rem;
+    outline: none;
+    border-radius: 1rem;
+    border: transparent;
+    padding: 1.5rem;
+}
+
+#url-input-submit {
+    height: 4rem;
+    width: 15rem;
+    font-size: 2.6rem;
+    background: white;
+    border: transparent;
+    border-radius: 1rem;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mt-4 {
+    margin-top: 4rem;
+}
+
+#shortened-url {
+    font-size: 3.5rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
 }
