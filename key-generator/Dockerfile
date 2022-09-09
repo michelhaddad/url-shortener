@@ -1,5 +1,4 @@
-FROM openjdk:11
-# TODO: Find image with smaller size
+FROM adoptopenjdk/openjdk11:alpine-jre
 
 ARG JAR_FILE
 ENV JAR_FILE=${JAR_FILE}

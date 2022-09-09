@@ -1,4 +1,4 @@
-FROM openjdk:11
+FROM adoptopenjdk/openjdk11:alpine-jre
 
 ARG JAR_FILE
 ENV JAR_FILE=${JAR_FILE}
