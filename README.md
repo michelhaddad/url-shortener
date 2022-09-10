@@ -7,7 +7,7 @@ A URL shortening service.
 
 ## Services
 
-- key-generator: Service responsible for providing random keys used when shortening urls.
+- key-generator: Service responsible for generating keys offline.
 - url-shortener: Service responsible for shortening urls.
 - frontend: Web page that allows users to shorten urls.
 
