@@ -14,24 +14,34 @@ function App() {
         setShortenedUrl(shortenedUrl)
     }
 
-    return (
-        <main>
-            <nav>
-                <h1 id="navbar-logo">Url Shortener</h1>
-            </nav>
+    const copyToClipboardGenerator = (text) => async () => {
+        await navigator.clipboard.writeText(text)
+    }
 
-            <div>
-                <div className="flex-center space-x-2">
-                    <input id="url-input" type="text" value={originalUrl} onChange={onOriginalUrlChange}/>
-                    <button id="url-input-submit" onClick={onClick}>Shorten!</button>
-                </div>
-                {shortenedUrl &&
-                    <div className="flex-center mt-4">
-                        <p id="shortened-url">{shortenedUrl}</p>
+    return (
+        <>
+            <div className="curve"></div>
+            <main>
+                <div className="div-title">
+                    <h1>URL Shortener</h1>
+                    <p>Shorter. Simpler. Better.</p>
+                    <div className="input-container space-x-2">
+                        <div className="custom-input">
+                            <input onChange={onOriginalUrlChange} type="text" placeholder="Type your URL here!"/>
+                        </div>
+                        <button onClick={onClick} id="submit-button">Try it out!</button>
                     </div>
-                }
-            </div>
-        </main>
+
+                    {
+                        shortenedUrl &&
+                        <div id="div-short-url" className="space-x-4">
+                            <p>{shortenedUrl}</p>
+                            <button onClick={copyToClipboardGenerator(shortenedUrl)}>Copy</button>
+                        </div>
+                    }
+                </div>
+            </main>
+        </>
     );
 }
 
