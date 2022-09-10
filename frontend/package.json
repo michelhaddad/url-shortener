@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "mrm-task-npm-docker": "^1.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -15,7 +16,22 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predocker:build": "npm run build",
+    "docker:buildLocal": "cross-conf-env docker image build . -t $npm_package_config_imageRepo:LOCAL-SNAPSHOT",
+    "postdocker:build": "npm run docker:tag",
+    "docker:tag": " cross-conf-env docker image tag $npm_package_config_imageRepo:$npm_package_version $npm_package_config_imageRepo:latest",
+    "docker:run": "run-s -c docker:stop docker:runHelper",
+    "docker:runHelper": "cross-conf-env docker run -e NODE_ENV=local --rm --name $npm_package_config_imageName -d -p $npm_package_config_imagePort:$npm_package_config_internalContainerPort $npm_package_config_imageRepo",
+    "predocker:publish": "echo Attention! Ensure `docker login` information is correct.",
+    "docker:publish": "cross-conf-env docker image push $npm_package_config_imageRepo:$npm_package_version",
+    "postdocker:publish": "cross-conf-env docker image push $npm_package_config_imageRepo:latest",
+    "docker:clean": "cross-conf-env docker rm -f $npm_package_config_imageName",
+    "docker:taillogs": "echo Web Server Logs: && cross-conf-env docker logs -f $npm_package_config_imageName",
+    "docker:debugmessage": "echo Docker Debug Completed Successfully! Hit Ctrl+C to terminate log tailing.",
+    "docker:debug": "run-s -cs docker:build docker:run docker:open docker:debugmessage docker:taillogs",
+    "docker:stop": "cross-conf-env docker stop $npm_package_config_imageName || true",
+    "docker:open": "sleep 2 && cross-conf-env open-cli http://localhost:$npm_package_config_imagePort"
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +50,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cross-conf-env": "^1.3.0",
+    "dev-norms": "^1.7.2",
+    "npm-run-all": "^4.1.5",
+    "open-cli": "^7.0.1"
+  },
+  "config": {
+    "imageRepo": "michel/url-shortener-frontend",
+    "imageName": "michel/url-shortener-frontend",
+    "imagePort": "3000",
+    "internalContainerPort": "3000"
   }
 }
