@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>11</java.version>
-        <dockerfile-maven-version>1.4.13</dockerfile-maven-version>
+        <dockerfile-maven-version>1.4.10</dockerfile-maven-version>
         <spring-cloud.version>2021.0.4</spring-cloud.version>
         <spring-cloud-starter-openfeign.version>3.1.4</spring-cloud-starter-openfeign.version>
     </properties>
