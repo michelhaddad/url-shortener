@@ -6,6 +6,7 @@ import io.michel.urlshortener.service.UrlService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin
 @RequestMapping("api/v1/url")
 public class UrlController {
     UrlService urlService;
