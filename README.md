@@ -2,6 +2,9 @@
 
 A URL shortening service.
 
+![image](https://user-images.githubusercontent.com/62252495/189491310-77e9f55d-1512-4785-a035-125bff14f9f1.png)
+
+
 ## Services
 
 - key-generator: Service responsible for providing random keys used when shortening urls.
